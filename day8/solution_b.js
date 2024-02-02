@@ -74,10 +74,13 @@ while (true) {
     if (endValues.length) initialStepValues = endValues;
     endValues = getEndValues(initialStepValues);
     count++;
-    finalCount = count * directionsArray.length;
-    if (endValues.every((value)=> value.endsWith('Z'))) {
+    if (!endValues.find((value)=> !value.endsWith('Z'))) {
+        break;
+    }
+    if (count * directionsArray.length>10241191004509) {
         break;
     }
 }
 
+finalCount = count * directionsArray.length;
 console.log(finalCount)
